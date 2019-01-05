@@ -1,6 +1,6 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 
 // Variables
 @import 'variables';
@@ -8,3 +8,113 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #FFFFFD;
+}
+.img-thumbnail {
+    background-color: #FFF;
+}
+
+#name {
+    color: #7F7F7E;
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+}
+
+/* Solid Divider */
+.u-divider-solid {
+    border-top-style: solid;
+}
+
+/* Dotted Divider */
+.u-divider-dotted {
+    border-top-style: dotted;
+}
+
+/* Dashed Divider */
+.u-divider-dashed {
+    border-top-style: dashed;
+}
+
+/* Double Solid Divider */
+.u-divider-db-solid {
+    height: 5px;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+}
+
+/* Double Dashed Divider */
+.u-divider-db-dashed {
+    height: 5px;
+    border-top: 1px dashed transparent;
+    border-bottom: 1px dashed transparent;
+}
+
+/* Double Dotted Divider */
+.u-divider-db-dotted {
+    height: 5px;
+    border-top: 1px dotted transparent;
+    border-bottom: 1px dotted transparent;
+}
+
+/* Linear Gradient Divider */
+.u-divider-linear-gradient {
+    height: 1px;
+    border: none;
+}
+
+.u-divider-linear-gradient--gray-light-v2 {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(#ccc), to(transparent));
+    background-image: -webkit-linear-gradient(left, transparent, #ccc, transparent);
+    background-image: -o-linear-gradient(left, transparent, #ccc, transparent);
+    background-image: linear-gradient(to right, transparent, #ccc, transparent);
+}
+
+.u-divider-linear-gradient--gray-light-v3 {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(#ddd), to(transparent));
+    background-image: -webkit-linear-gradient(left, transparent, #ddd, transparent);
+    background-image: -o-linear-gradient(left, transparent, #ddd, transparent);
+    background-image: linear-gradient(to right, transparent, #ddd, transparent);
+}
+
+.u-divider {
+    position: relative;
+    border-top-width: 1px;
+}
+
+.u-divider__icon {
+    position: absolute;
+    top: -1.42857rem;
+    width: 2.85714rem;
+    height: 2.85714rem;
+    font-size: 1.28571rem;
+    line-height: 2.85714rem;
+    text-align: center;
+    font-style: normal;
+}
+
+.u-divider__icon--indented {
+    -webkit-box-shadow: 0 0 0 15px #fff;
+    box-shadow: 0 0 0 15px #fff;
+}
+
+.u-divider-center {
+    text-align: center;
+}
+
+.u-divider-right {
+    text-align: right;
+}
+
+.u-divider-center .u-divider__icon {
+    left: auto;
+    right: auto;
+    margin-left: -1.42857rem;
+}
+
+.u-divider-right .u-divider__icon {
+    left: auto;
+    right: 0;
+}

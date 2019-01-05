@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ app()->getLocale() }}" class="h-100">
 
     <head>
 
@@ -14,19 +14,11 @@
 
     </head>
 
-    <body>
+    <body class="h-100">
 
         @if (View::hasSection('main-content'))
 
-            <section class="section">
-
-                <div class="container">
-
-                    @yield ('main-content')
-
-                </div>
-
-            </section>
+            @yield ('main-content')
 
         @endif
 
