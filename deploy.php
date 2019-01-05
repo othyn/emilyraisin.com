@@ -37,7 +37,7 @@ task('yarn:build', 'yarn build');
 after('deploy:failed', 'deploy:unlock');
 
 // Migrate database before symlink new release.
-before('deploy:symlink', 'artisan:migrate');
+// before('deploy:symlink', 'artisan:migrate');
 
 // Run a Yarn install and then build client assets
 after('deploy:update_code', 'yarn:install');
