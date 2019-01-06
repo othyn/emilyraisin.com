@@ -2,8 +2,6 @@
 
 @section ('main-content')
 
-<h2 id="name">Emily Raisin</h2>
-
 <div class="container-fluid h-100">
     <div class="row h-100">
         <div class="col-12 h-100 d-flex flex-column justify-content-center text-center">
