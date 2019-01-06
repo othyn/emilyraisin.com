@@ -24,8 +24,9 @@ a {
 // Set background colour for image to pure white
 
 #name {
-    color: #7F7F7E;
+    color: $theme-accent;
     position: absolute;
     top: 1.5rem;
     left: 1.5rem;
 }
+// Set the fixed header name style
