@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300');
 // Fonts
 
 @import 'variables';
@@ -26,7 +26,15 @@ a {
 #name {
     color: $theme-accent;
     position: absolute;
+    font-size: 1.8rem;
+    line-height: 1.2;
+    font-weight: 300;
     top: 1.5rem;
     left: 1.5rem;
+    z-index: 9999;
+    &:hover {
+        color: $theme-secondary;
+        text-decoration: none;
+    }
 }
 // Set the fixed header name style
