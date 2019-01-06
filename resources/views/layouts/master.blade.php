@@ -9,7 +9,7 @@
 
         <title>Emily Raisin</title>
 
-        <link rel="shortcut icon" href="/favicon.ico">
+        <link rel="shortcut icon" href="/favicon.png">
         <link rel="stylesheet" href="{{ url('/css/app.css') }}">
 
     </head>
