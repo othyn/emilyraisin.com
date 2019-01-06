@@ -23,7 +23,7 @@
                             <a href="/portfolio">Portfolio</a>
                         </div>
                         <div class="col-4 col-sm-2">
-                            <a>Say Hello</a>
+                            <a>Say Hello!</a>
                         </div>
                     </div>
                 </div>
