@@ -14,7 +14,7 @@
                 <div class="col-12 mb-4">
                     <h1>Excellant freelance copyrighter with a<br>nack for proofreeding.</h1>
                 </div>
-            {{--     <div class="col-12">
+                <div class="col-12">
                     <div class="row">
                         <div class="col-4 col-sm-2 offset-sm-3">
                             <a href="/about">About</a>
@@ -26,7 +26,7 @@
                             <a>Say Hello</a>
                         </div>
                     </div>
-                </div> --}}
+                </div>
             </div>
         </div>
     </div>

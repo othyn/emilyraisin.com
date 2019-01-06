@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::view('/', 'home');
+Route::view('/portfolio', 'portfolio');
+Route::view('/about', 'about');
