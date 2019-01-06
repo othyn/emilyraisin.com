@@ -10,7 +10,14 @@
 @import '~animate.css/animate.min.css';
 // Animate
 
+a {
+    color: $theme-accent;
+    &:hover {
+        color: $theme-secondary;
+    }
 }
+// Link style on home page
+
 .img-thumbnail {
     background-color: #FFF;
 }
