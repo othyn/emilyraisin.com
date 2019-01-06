@@ -10,7 +10,7 @@
                     <img src="/img/me.jpeg" class="img-thumbnail rounded-circle img-fluid mx-auto d-block img-ruled" alt="Me!">
                 </div>
                 <div class="col-12 mb-4">
-                    <h1>Excellant freelance copyrighter with a<br>nack for proofreeding.</h1>
+                    <h1 id="type-tagline"></h1>
                 </div>
                 <div class="col-12">
                     <div class="row">
