@@ -12,7 +12,7 @@
         <meta name="description" content="Freelance copywriter. I’m creative, but I also understand briefs and deadlines. If that sounds like the type of person you would like to work with, contact me.">
 
         <link rel="shortcut icon" href="/favicon.png">
-        <link rel="stylesheet" href="{{ url('/css/app.css') }}">
+        <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 
     </head>
 
@@ -26,9 +26,9 @@
 
         @endif
 
-        <script src="{{ url('/js/manifest.js') }}"></script>
-        <script src="{{ url('/js/vendor.js') }}"></script>
-        <script src="{{ url('/js/app.js') }}"></script>
+        <script src="{{ mix('/js/manifest.js') }}"></script>
+        <script src="{{ mix('/js/vendor.js') }}"></script>
+        <script src="{{ mix('/js/app.js') }}"></script>
 
     </body>
 
