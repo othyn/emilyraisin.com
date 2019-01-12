@@ -21,7 +21,11 @@
                             <a href="/portfolio">Portfolio</a>
                         </div>
                         <div class="col-4 col-sm-2">
-                            <a href="#">Say Hello!</a>
+                            @component('modals.contact')
+                                @slot('anchor')
+                                    Say Hello!
+                                @endslot
+                            @endcomponent
                         </div>
                     </div>
                 </div>
