@@ -1,3 +1,5 @@
+<!-- Depreciated in favour of SWAL -->
+
 @component('components.modal', ['name' => 'contact'])
     @isset($anchor)
         @slot('anchor')
