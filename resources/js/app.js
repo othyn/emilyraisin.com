@@ -7,3 +7,4 @@
 
 require('./bootstrap');
 require('./typeit');
+require('./contact');
