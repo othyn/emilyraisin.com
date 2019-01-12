@@ -32,7 +32,7 @@ if (mix.inProduction()) {
 mix.options(options);
 // Webpack plugin config
 
-mix.extract(['axios', 'jquery']);
+mix.extract(['axios', 'jquery', 'sweetalert']);
 // JS Vendor
 
 mix.js('resources/js/app.js', 'public/js')
