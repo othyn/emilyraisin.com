@@ -5,6 +5,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import swal from 'sweetalert';
+
 require('./bootstrap');
 require('./typeit');
 require('./contact');
