@@ -21,7 +21,7 @@
                             <a href="/portfolio">Portfolio</a>
                         </div>
                         <div class="col-4 col-sm-2">
-                            @component('modals.contact')
+                            @component('swal.contact')
                                 @slot('anchor')
                                     Say Hello!
                                 @endslot
