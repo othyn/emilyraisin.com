@@ -9,6 +9,8 @@
 
         <title>Emily Raisin</title>
 
+        <meta name="description" content="Freelance copywriter. I’m creative, but I also understand briefs and deadlines. If that sounds like the type of person you would like to work with, contact me.">
+
         <link rel="shortcut icon" href="/favicon.png">
         <link rel="stylesheet" href="{{ url('/css/app.css') }}">
 
