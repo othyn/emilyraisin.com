@@ -1,5 +1,8 @@
 import TypeIt from 'typeit';
 
+new TypeIt('.type-me');
+// Generic initialiser
+
 new TypeIt('#type-tagline')
     .type('Maintaining the word count')
     .pause(750)
