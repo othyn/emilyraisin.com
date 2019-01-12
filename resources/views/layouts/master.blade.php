@@ -18,7 +18,7 @@
 
     <body class="h-100">
 
-        <a id="name" href="/">Emily Raisin</a>
+        <a id="name-brand" href="/">Emily Raisin</a>
 
         @if (View::hasSection('main-content'))
 
