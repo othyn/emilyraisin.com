@@ -1,7 +1,6 @@
 $('.swal-kicker[data-for=contact]').on('click', function() {
 
     let $swalContent = $('.swal-template[data-for=contact]').clone().css({'display': 'block'});
-    grecaptcha.reset();
 
     swal({
         title: 'Say Hello!',
@@ -43,4 +42,11 @@ $('.swal-kicker[data-for=contact]').on('click', function() {
             });
         }
     });
+
+    setTimeout(() => {
+        grecaptcha.reset();
+        console.log('test');
+    }, 500);
+    // No callback method exists within swal...
+    // https://github.com/t4t5/sweetalert/issues/286
 });
