@@ -35,9 +35,6 @@
             <textarea id="message" name="message" class="form-control" rows="5" required=""></textarea>
             <div class="invalid-feedback"></div>
         </div>
-
-        <div class="g-recaptcha"></div>
-        <div class="invalid-feedback captcha-invalid"></div>
     </form>
 
 @endcomponent

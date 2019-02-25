@@ -30,20 +30,7 @@
         <script src="{{ mix('/js/vendor.js') }}"></script>
         <script src="{{ mix('/js/app.js') }}"></script>
 
-        <script>
-            var recaptchaCallback = function() {
-
-                $('.g-recaptcha').html('');
-
-                $('.g-recaptcha').each(function (i, captcha) {
-                    grecaptcha.render(captcha, {
-                        'sitekey': '6Le115MUAAAAAFQ8FSjIeG4WgO_Thp-UmGA_Pp9q'
-                    });
-                });
-            };
-        </script>
-
-        {!! NoCaptcha::renderJs('en', true, 'recaptchaCallback') !!}
+        {!! NoCaptcha::renderJs() !!}
 
     </body>
 

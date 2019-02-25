@@ -2,6 +2,8 @@ $('.swal-kicker[data-for=contact]').on('click', function() {
 
     let $swalContent = $('.swal-template[data-for=contact]').clone().css({'display': 'block'});
 
+    $swalContent.find('form').append('<div class="g-recaptcha">Waiting on recaptcha to load...</div>');
+
     swal({
         title: 'Say Hello!',
         content: $swalContent[0],
@@ -43,10 +45,11 @@ $('.swal-kicker[data-for=contact]').on('click', function() {
         }
     });
 
-    setTimeout(() => {
-        grecaptcha.reset();
-        console.log('test');
-    }, 500);
+    $('.g-recaptcha').each(function (i, captcha) {
+        grecaptcha.render(captcha, {
+            'sitekey': '6Le115MUAAAAAFQ8FSjIeG4WgO_Thp-UmGA_Pp9q'
+        });
+    });
     // No callback method exists within swal...
     // https://github.com/t4t5/sweetalert/issues/286
 });
