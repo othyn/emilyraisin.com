@@ -14,6 +14,8 @@
         <link rel="shortcut icon" href="/favicon.png">
         <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 
+        {!! NoCaptcha::renderJs() !!}
+
     </head>
 
     <body class="h-100">
