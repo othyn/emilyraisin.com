@@ -36,7 +36,7 @@
             <div class="invalid-feedback"></div>
         </div>
 
-        {!! NoCaptcha::display() !!}
+        <div class="g-recaptcha"></div>
         <div class="invalid-feedback captcha-invalid"></div>
     </form>
 

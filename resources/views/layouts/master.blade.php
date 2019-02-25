@@ -14,8 +14,6 @@
         <link rel="shortcut icon" href="/favicon.png">
         <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 
-        {!! NoCaptcha::renderJs() !!}
-
     </head>
 
     <body class="h-100">
@@ -31,6 +29,21 @@
         <script src="{{ mix('/js/manifest.js') }}"></script>
         <script src="{{ mix('/js/vendor.js') }}"></script>
         <script src="{{ mix('/js/app.js') }}"></script>
+
+        <script>
+            var recaptchaCallback = function() {
+
+                $('.g-recaptcha').html('');
+
+                $('.g-recaptcha').each(function (i, captcha) {
+                    grecaptcha.render(captcha, {
+                        'sitekey': '6Le115MUAAAAAFQ8FSjIeG4WgO_Thp-UmGA_Pp9q'
+                    });
+                });
+            };
+        </script>
+
+        {!! NoCaptcha::renderJs('en', true, 'recaptchaCallback') !!}
 
     </body>
 
