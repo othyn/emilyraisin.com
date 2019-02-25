@@ -6,7 +6,7 @@
 namespace Deployer;
 
 require 'recipe/laravel.php';
-require 'recipe/yarn.php';
+require 'vendor/deployer/recipes/recipe/yarn.php';
 
 // Project name
 set('application', 'Emily Raisin');
