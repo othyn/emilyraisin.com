@@ -1,6 +1,7 @@
 $('.swal-kicker[data-for=contact]').on('click', function() {
 
     let $swalContent = $('.swal-template[data-for=contact]').clone().css({'display': 'block'});
+    grecaptcha.reset();
 
     swal({
         title: 'Say Hello!',
