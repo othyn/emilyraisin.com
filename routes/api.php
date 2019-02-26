@@ -25,13 +25,20 @@ Route::middleware('throttle:10,1')->post('/contact', function (Request $request)
     $email = filter_var($request->email, FILTER_SANITIZE_STRING);
     $message = filter_var($request->message, FILTER_SANITIZE_STRING);
 
-    $to = env('CONTACT_EMAIL', '');
+    $to = env('CONTACT_EMAIL_TO', '');
+    $from = env('CONTACT_EMAIL_FROM', '');
+    $domain = env('CONTACT_DOMAIN', '');
 
     if (!empty($to)) {
+        $subject = "[{$domain}] New contact request from: {$name} ({$email})";
+        $message = "Name: {$name}\r\nEmail: {$email}\r\nMessage:\r\n{$message}";
 
-        $subject = "[emilyraisin.com] New contact form from: {$name} ({$email})";
-        $message = "Name: {$name}<br>Email: {$email}<br>Message:<br>{$message}";
+        $headers = [
+            'To' => "You <{$to}>",
+            'From' => $from,
+            'X-Mailer' => 'PHP/' . phpversion()
+        ];
 
-        mail($to, $subject, $message);
+        mail($to, $subject, $message, $headers);
     }
 });
