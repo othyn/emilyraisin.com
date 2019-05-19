@@ -42,3 +42,6 @@ after('deploy:failed', 'deploy:unlock');
 // Run a Yarn install and then build client assets
 after('deploy:update_code', 'yarn:install');
 after('yarn:install', 'yarn:build');
+
+// TODO
+// Create step that grabs current IP then uses doctl to update the allowed FW rules on DO, so that I don't have to manually do it each time
