@@ -9,9 +9,10 @@
 # which will be run after this script.
 
 cd code
+
 echo 'Migrating database schema...'
 php artisan migrate:refresh
-php artisan migrate
+
 echo 'Seeding DB...'
 php artisan db:seed
 # Migrate the databases - deleting all content and mapping the migrations a new
