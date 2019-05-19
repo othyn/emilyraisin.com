@@ -1,20 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}" class="h-100">
 
-    <head>
-
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>Emily Raisin</title>
-
-        <meta name="description" content="Freelance copywriter. I’m creative, but I also understand briefs and deadlines. If that sounds like the type of person you would like to work with, contact me.">
-
-        <link rel="shortcut icon" href="/favicon.png">
-        <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-
-    </head>
+    @include ('layouts.header')
 
     <body class="h-100">
 
@@ -22,15 +9,19 @@
 
         @if (View::hasSection('main-content'))
 
-            @yield ('main-content')
+            <div class="container-fluid h-100">
+                <div class="row h-100">
+                    <div class="col-12 h-100 d-flex flex-column justify-content-center text-center">
+
+                        @yield ('main-content')
+
+                    </div>
+                </div>
+            </div>
 
         @endif
 
-        <script src="{{ mix('/js/manifest.js') }}"></script>
-        <script src="{{ mix('/js/vendor.js') }}"></script>
-        <script src="{{ mix('/js/app.js') }}"></script>
-
-        {!! NoCaptcha::renderJs() !!}
+        @include ('layouts.footer')
 
     </body>
 
