@@ -14,3 +14,6 @@
 Route::view('/', 'home');
 Route::view('/portfolio', 'portfolio');
 Route::view('/about', 'about');
+
+Route::get('/blog', 'PostsController@index');
+Route::get('/blog/posts/{post}', 'PostsController@show');
