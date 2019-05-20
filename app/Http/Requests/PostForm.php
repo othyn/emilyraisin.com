@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Post;
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class PostForm extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +14,7 @@ class PostRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->user()->is_admin;
     }
 
     /**
@@ -24,7 +25,16 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required',
+            'subtitle' => 'required',
+            'body' => 'required',
         ];
+    }
+
+    public function persist()
+    {
+        auth()->user()->publish(
+            new Post($this->only(['title', 'subtitle', 'body']))
+        );
     }
 }
