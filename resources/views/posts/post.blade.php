@@ -7,4 +7,6 @@
     <p class="blog-post-meta">{{ $post->created_at->toFormattedDateString() }} by <a href="/about">Emily</a></p>
 
     {{ $post->subtitle }}
+
+    <a class="d-block mt-3" href="/blog/posts/{{ $post->id }}">Continue reading ></a>
 </div>

@@ -13,7 +13,7 @@
 
 @section ('main-content')
 
-    <div class="blog-post pb-5 mb-5 border-bottom">
+    <div class="blog-post pb-5 mb-5">
 
         <a class="d-block mb-4" href="/blog">< Back to list</a>
 

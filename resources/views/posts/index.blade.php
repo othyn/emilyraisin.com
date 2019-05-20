@@ -19,4 +19,9 @@
 
     @endforeach
 
+    <nav class="blog-pagination text-center">
+        <a class="d-inline-block mr-4" href="#">< Older</a>
+        <a class="d-inline-block" href="#">Newer ></a>
+    </nav>
+
 @endsection
