@@ -18,4 +18,4 @@ Route::view('/about', 'about');
 Route::get('/blog', 'PostsController@index');
 Route::get('/blog/posts/{post}', 'PostsController@show');
 
-Auth::routes(['register' => false, 'reset' => false]);
+Auth::routes();
