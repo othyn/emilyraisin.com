@@ -38,7 +38,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('post.create');
     }
 
     /**
@@ -49,7 +49,17 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'subtitle' => 'required',
+            'body' => 'required',
+        ]);
+
+        auth()->user()->publish(
+            new Post(request(['title', 'subtitle', 'body']))
+        );
+
+        return redirect('/blog');
     }
 
     /**
