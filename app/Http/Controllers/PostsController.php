@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostForm;
 
 class PostsController extends Controller
 {
@@ -44,20 +45,13 @@ class PostsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request    $request
+     * @param \App\Http\Requests\PostForm $form
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, PostForm $form)
     {
-        $request->validate([
-            'title' => 'required',
-            'subtitle' => 'required',
-            'body' => 'required',
-        ]);
-
-        auth()->user()->publish(
-            new Post(request(['title', 'subtitle', 'body']))
-        );
+        $form->persist();
 
         return redirect('/blog');
     }
