@@ -7,14 +7,14 @@
     <h4 class="font-italic">Archives</h4>
     <ol class="list-unstyled mb-0">
         <li>
-            <a href="/blog">
+            <a href="{{ route('posts') }}">
                 All posts ({{ $archives->sum('published') }})
             </a>
         </li>
 
         @foreach ($archives as $archive)
             <li>
-                <a href="/blog?year={{ $archive->year }}&month={{ $archive->month }}">
+                <a href="{{ route('posts') }}?year={{ $archive->year }}&month={{ $archive->month }}">
                     {{ $archive->year }}, {{ $archive->month }} ({{ $archive->published }})
                 </a>
             </li>
@@ -23,10 +23,10 @@
 </div>
 
 <div class="p-4">
-<h4 class="font-italic">Elsewhere</h4>
-<ol class="list-unstyled">
-<li><a href="#">GitHub</a></li>
-<li><a href="#">Twitter</a></li>
-<li><a href="#">Facebook</a></li>
-</ol>
+    <h4 class="font-italic">Elsewhere</h4>
+    <ol class="list-unstyled">
+        <li><a href="#">GitHub</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Facebook</a></li>
+    </ol>
 </div>

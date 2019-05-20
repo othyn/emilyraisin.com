@@ -1,6 +1,6 @@
 <div class="blog-post pb-5 mb-5 border-bottom">
     <h2 class="blog-post-title">
-        <a href="/blog/posts/{{ $post->id }}">
+        <a href="{{ route('posts.show', [$post->id]) }}">
             {{ $post->title }}
         </a>
     </h2>
@@ -8,5 +8,5 @@
 
     {{ $post->subtitle }}
 
-    <a class="d-block mt-3" href="/blog/posts/{{ $post->id }}">Continue reading ></a>
+    <a class="d-block mt-3" href="{{ route('posts.show', [$post->id]) }}">Continue reading ></a>
 </div>

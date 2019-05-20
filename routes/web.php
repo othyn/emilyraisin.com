@@ -15,7 +15,7 @@ Route::view('/', 'home');
 Route::view('/portfolio', 'portfolio');
 Route::view('/about', 'about');
 
-Route::get('/blog', 'PostsController@index');
-Route::get('/blog/posts/{post}', 'PostsController@show');
+Route::get('/blog', 'PostsController@index')->name('posts');
+Route::get('/blog/posts/{post}', 'PostsController@show')->name('posts.show');
 
 Auth::routes();

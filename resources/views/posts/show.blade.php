@@ -15,7 +15,7 @@
 
     <div class="blog-post pb-5 mb-5">
 
-        <a class="d-block mb-4" href="/blog">< Back to list</a>
+        <a class="d-block mb-4" href="{{ route('posts') }}">< Back to list</a>
 
         {!! nl2br(e($post->body)) !!}
 
