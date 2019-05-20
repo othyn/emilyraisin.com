@@ -13,6 +13,12 @@
 
 @section ('main-content')
 
+    @if (auth()->check() && auth()->user()->is_admin)
+
+        <a class="d-block pb-4 mb-5 border-bottom" href="{{ route('posts.create') }}">+ Create post</a>
+
+    @endif
+
     @foreach ($posts as $post)
 
         @include ('posts.post')
