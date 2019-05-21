@@ -9729,15 +9729,53 @@ a:hover {
 
 #name-brand {
   color: #7F7F7E;
-  position: absolute;
+  position: fixed;
   font-size: 1.8rem;
   line-height: 1.2;
   font-weight: 300;
-  top: 1.5rem;
-  left: 1.5rem;
+  top: 0;
+  left: 0;
+  padding: 1.5rem;
+  background-color: #FFF;
+  width: 100%;
+  box-shadow: 0px 20px 20px #FFF;
   z-index: 1;
 }
 #name-brand:hover {
   color: #212529;
   text-decoration: none;
+}
+
+.alert.alert-flash {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  -webkit-animation: alert-flash 3s forwards;
+          animation: alert-flash 3s forwards;
+}
+
+@-webkit-keyframes alert-flash {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes alert-flash {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
 }

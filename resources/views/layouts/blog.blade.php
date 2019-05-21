@@ -7,6 +7,8 @@
 
         <a id="name-brand" href="/">Emily Raisin</a>
 
+        @include ('components.messages.flash.success')
+
         <div class="container-fluid h-100">
             <div class="row h-100">
                 <div class="col-12 h-100 d-flex flex-column justify-content-center text-center">

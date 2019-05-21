@@ -28,12 +28,16 @@ a {
 
 #name-brand {
     color: $theme-accent;
-    position: absolute;
+    position: fixed;
     font-size: 1.8rem;
     line-height: 1.2;
     font-weight: 300;
-    top: 1.5rem;
-    left: 1.5rem;
+    top: 0;
+    left: 0;
+    padding: $border-offset;
+    background-color: $white;
+    width: 100%;
+    box-shadow: 0px 20px 20px $white;
     z-index: 1;
     &:hover {
         color: $theme-secondary;
@@ -41,3 +45,23 @@ a {
     }
 }
 // Set the fixed header name style
+
+.alert.alert-flash {
+    position: fixed;
+    top: $border-offset;
+    right: $border-offset;
+    animation: alert-flash 3s forwards;
+}
+@keyframes alert-flash {
+    0% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+// Flash message styling

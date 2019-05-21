@@ -53,6 +53,8 @@ class PostsController extends Controller
     {
         $form->persist();
 
+        session()->flash('flash.success', 'Post created successfully!');
+
         return redirect()->route('posts');
     }
 
