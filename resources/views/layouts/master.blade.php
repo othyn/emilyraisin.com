@@ -9,7 +9,7 @@
 
         @if (View::hasSection('main-content'))
 
-            <div class="container-fluid h-100">
+            <div class="container h-100">
                 <div class="row h-100">
                     <div class="col-12 h-100 d-flex flex-column justify-content-center text-center">
 
