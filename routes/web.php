@@ -11,9 +11,9 @@
 |
 */
 
-Route::view('/', 'home');
-Route::view('/portfolio', 'portfolio');
-Route::view('/about', 'about');
+Route::view('/', 'home')->name('home');
+Route::view('/portfolio', 'portfolio')->name('portfolio');
+Route::view('/about', 'about')->name('about');
 
 Route::get('/blog', 'PostsController@index')->name('posts');
 Route::get('/blog/posts/create', 'PostsController@create')->name('posts.create'); // Add middleware for admin check
