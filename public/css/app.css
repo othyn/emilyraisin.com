@@ -9755,6 +9755,7 @@ a:hover {
   right: 1.5rem;
   -webkit-animation: alert-flash 3s forwards;
           animation: alert-flash 3s forwards;
+  z-index: 99;
 }
 
 @-webkit-keyframes alert-flash {
