@@ -7,6 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'title', 'subtitle', 'body'
+    ];
+
     public static function archives()
     {
         return static::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')

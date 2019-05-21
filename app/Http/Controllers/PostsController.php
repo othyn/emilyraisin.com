@@ -53,7 +53,7 @@ class PostsController extends Controller
     {
         $form->persist();
 
-        return redirect('/blog');
+        return redirect()->route('posts');
     }
 
     /**

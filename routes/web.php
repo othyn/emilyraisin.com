@@ -17,6 +17,7 @@ Route::view('/about', 'about');
 
 Route::get('/blog', 'PostsController@index')->name('posts');
 Route::get('/blog/posts/create', 'PostsController@create')->name('posts.create'); // Add middleware for admin check
+Route::post('/blog/posts', 'PostsController@store')->name('posts.store'); // Add middleware for admin check
 Route::get('/blog/posts/{post}', 'PostsController@show')->name('posts.show');
 
 Auth::routes();
