@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="col-3 col-sm-2">
-                        <a href="{{ route('posts') }}">Blog</a>
+                        <a href="{{ route('posts.index') }}">Blog</a>
                     </div>
 
                     <div class="col-3 col-sm-2">

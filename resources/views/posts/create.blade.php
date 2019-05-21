@@ -14,7 +14,7 @@
 @section ('main-content')
 
     <form method="POST" action="{{ route('posts.store') }}">
-        {{ csrf_field() }}
+        @csrf
 
         <div class="form-group mb-4">
             <label for="title">Title</label>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="clearfix mb-5">
-            <a class="d-inline-block" href="{{ route('posts') }}">< Back to list</a>
+            <a class="d-inline-block" href="{{ route('posts.index') }}">< Back to list</a>
             <button type="submit" class="btn btn-link p-0 d-inline-block float-right">Publish ></button>
         </div>
     </form>
