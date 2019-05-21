@@ -15,7 +15,7 @@ class PostsController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth', ['only' => 'index']);
+        $this->middleware('auth.admin')->except(['index', 'show']);
     }
 
     /**
@@ -45,17 +45,14 @@ class PostsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request    $request
      * @param \App\Http\Requests\PostForm $form
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, PostForm $form)
+    public function store(PostForm $form)
     {
         $form->persist();
 
-        session()->flash('flash.success', 'Post created successfully!');
-
-        return redirect()->route('posts');
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -77,7 +74,7 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -87,9 +84,11 @@ class PostsController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostForm $form, Post $post)
     {
-        //
+        $form->update($post);
+
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -100,6 +99,10 @@ class PostsController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        session()->flash('flash.success', 'Post deleted successfully!');
+
+        return redirect()->route('posts.index');
     }
 }

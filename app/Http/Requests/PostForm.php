@@ -36,5 +36,18 @@ class PostForm extends FormRequest
         auth()->user()->publish(
             new Post($this->only(['title', 'subtitle', 'body']))
         );
+
+        session()->flash('flash.success', 'Post created successfully!');
+    }
+
+    public function update(Post $post)
+    {
+        $post->title = $this->title;
+        $post->subtitle = $this->subtitle;
+        $post->body = $this->body;
+
+        $post->save();
+
+        session()->flash('flash.success', 'Post updated successfully!');
     }
 }

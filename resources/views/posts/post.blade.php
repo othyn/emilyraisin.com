@@ -8,5 +8,22 @@
 
     {{ $post->subtitle }}
 
-    <a class="d-block mt-3" href="{{ route('posts.show', [$post->id]) }}">Continue reading ></a>
+    <div class="clearfix">
+        <a class="d-inline-block mt-3" href="{{ route('posts.show', [$post->id]) }}">Continue reading ></a>
+
+        @if (auth()->check() && auth()->user()->is_admin)
+
+            <span class="float-right mt-3">
+                <a class="btn btn-link d-inline-block p-0" href="{{ route('posts.edit', [$post->id]) }}">Edit</a>
+                <span class="text-muted pl-2 pr-2">|</span>
+                <form method="POST" action="{{ route('posts.destroy', [$post->id]) }}" class="d-inline-block">
+                    @csrf
+                    @method ('DELETE')
+
+                    <button type="submit" class="btn btn-link d-inline-block p-0">Delete</button>
+                </form>
+            </span>
+
+        @endif
+    </div>
 </div>
