@@ -40,7 +40,7 @@
             @enderror
         </div>
 
-        <div class="clearfix">
+        <div class="clearfix mb-5">
             <a class="d-inline-block" href="{{ route('posts') }}">< Back to list</a>
             <button type="submit" class="btn btn-link p-0 d-inline-block float-right">Publish ></button>
         </div>
