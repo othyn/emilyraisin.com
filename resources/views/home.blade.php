@@ -11,49 +11,55 @@
             <h1 id="type-tagline"></h1>
         </div>
 
-{{--         <div class="col-12">
-            <div class="row">
-                <div class="col-3 col-sm-2 offset-sm-2">
-                    <a href="/about">About</a>
-                </div>
+        @if (auth()->check() && auth()->user()->is_admin)
 
-                <div class="col-3 col-sm-2">
-                    <a href="/blog">Blog</a>
-                </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-3 col-sm-2 offset-sm-2">
+                        <a href="{{ route('about') }}">About</a>
+                    </div>
 
-                <div class="col-3 col-sm-2">
-                    <a href="/portfolio">Portfolio</a>
-                </div>
+                    <div class="col-3 col-sm-2">
+                        <a href="{{ route('posts') }}">Blog</a>
+                    </div>
 
-                <div class="col-3 col-sm-2">
-                    @component('swal.contact')
-                        @slot('anchor')
-                            Say Hello!
-                        @endslot
-                    @endcomponent
+                    <div class="col-3 col-sm-2">
+                        <a href="{{ route('portfolio') }}">Portfolio</a>
+                    </div>
+
+                    <div class="col-3 col-sm-2">
+                        @component('swal.contact')
+                            @slot('anchor')
+                                Say Hello!
+                            @endslot
+                        @endcomponent
+                    </div>
                 </div>
             </div>
-        </div> --}}
 
-        <div class="col-12">
-            <div class="row">
-                <div class="col-4 col-sm-2 offset-sm-3">
-                    <a href="/about">About</a>
-                </div>
+        @else
 
-                <div class="col-4 col-sm-2">
-                    <a href="/portfolio">Portfolio</a>
-                </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-4 col-sm-2 offset-sm-3">
+                        <a href="{{ route('about') }}">About</a>
+                    </div>
 
-                <div class="col-4 col-sm-2">
-                    @component('swal.contact')
-                        @slot('anchor')
-                            Say Hello!
-                        @endslot
-                    @endcomponent
+                    <div class="col-4 col-sm-2">
+                        <a href="{{ route('portfolio') }}">Portfolio</a>
+                    </div>
+
+                    <div class="col-4 col-sm-2">
+                        @component('swal.contact')
+                            @slot('anchor')
+                                Say Hello!
+                            @endslot
+                        @endcomponent
+                    </div>
                 </div>
             </div>
-        </div>
+
+        @endif
     </div>
 
 @endsection
