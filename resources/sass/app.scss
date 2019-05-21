@@ -26,25 +26,30 @@ a {
 }
 // Set background colour for image to pure white
 
-#name-brand {
-    color: $theme-accent;
+
+#nav-bar {
     position: fixed;
-    font-size: 1.8rem;
-    line-height: 1.2;
-    font-weight: 300;
     top: 0;
     left: 0;
     padding: $border-offset;
     background-color: $white;
-    width: 100%;
     box-shadow: 0px 20px 20px $white;
-    z-index: 1;
+    width: 100%;
+    z-index: 10;
+}
+// Set the fixed header
+
+#nav-bar #brand {
+    color: $theme-accent;
+    font-size: 1.8rem;
+    line-height: 1.2;
+    font-weight: 300;
     &:hover {
         color: $theme-secondary;
         text-decoration: none;
     }
 }
-// Set the fixed header name style
+// Header name style
 
 .alert.alert-flash {
     position: fixed;

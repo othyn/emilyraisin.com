@@ -5,7 +5,7 @@
 
     <body class="h-100">
 
-        <a id="name-brand" href="/">Emily Raisin</a>
+        @include ('layouts.nav')
 
         @if (View::hasSection('main-content'))
 

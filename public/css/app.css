@@ -9727,21 +9727,24 @@ a:hover {
   background-color: #FFF;
 }
 
-#name-brand {
-  color: #7F7F7E;
+#nav-bar {
   position: fixed;
-  font-size: 1.8rem;
-  line-height: 1.2;
-  font-weight: 300;
   top: 0;
   left: 0;
   padding: 1.5rem;
   background-color: #FFF;
-  width: 100%;
   box-shadow: 0px 20px 20px #FFF;
-  z-index: 1;
+  width: 100%;
+  z-index: 10;
 }
-#name-brand:hover {
+
+#nav-bar #brand {
+  color: #7F7F7E;
+  font-size: 1.8rem;
+  line-height: 1.2;
+  font-weight: 300;
+}
+#nav-bar #brand:hover {
   color: #212529;
   text-decoration: none;
 }

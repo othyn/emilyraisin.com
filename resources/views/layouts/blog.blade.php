@@ -5,7 +5,7 @@
 
     <body class="h-50">
 
-        <a id="name-brand" href="/">Emily Raisin</a>
+        @include ('layouts.nav')
 
         @include ('components.messages.flash.success')
 
