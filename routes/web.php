@@ -11,13 +11,16 @@
 |
 */
 
+Auth::routes();
+
+Route::redirect('/home', '/');
+Route::redirect('/blog', '/blog/posts');
+
 Route::view('/', 'home')->name('home');
 Route::view('/portfolio', 'portfolio')->name('portfolio');
 Route::view('/about', 'about')->name('about');
 
-Route::get('/blog', 'PostsController@index')->name('posts');
-Route::get('/blog/posts/create', 'PostsController@create')->name('posts.create'); // Add middleware for admin check
-Route::post('/blog/posts', 'PostsController@store')->name('posts.store'); // Add middleware for admin check
-Route::get('/blog/posts/{post}', 'PostsController@show')->name('posts.show');
-
-Auth::routes();
+Route::prefix('blog')->group(function () {
+    Route::resource('posts', 'PostsController');
+    // TODO: Add middleware for admin check
+});
