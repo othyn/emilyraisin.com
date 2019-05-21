@@ -1,7 +1,5 @@
 - Tagging
-- Post modification
 - Markdown editor and loading/rendering
 - Social media links (if you want them)
 - Sbout blurb for sidebar
 - Login/out screen themeing
-- Route lockdowns
