@@ -6,6 +6,12 @@
         <div class="col-12">
             <h1 class="type-me">{{ $post->title }}</h1>
             <h5 class="text-muted">{{ $post->subtitle }}</h5>
+
+            @if (count($post->tags))
+                @foreach ($post->tags as $tag)
+                    <a class="pr-3" href="{{ route('tags.filter', [$tag->name]) }}">{{ $tag->name }}</a>
+                @endforeach
+            @endif
         </div>
     </div>
 
