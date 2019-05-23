@@ -13,7 +13,7 @@
 
 Auth::routes([
     'reset' => false,
-    'register' => false
+    'register' => false,
 ]);
 
 Route::redirect('/home', '/');
@@ -25,5 +25,10 @@ Route::view('/about', 'about')->name('about');
 
 Route::prefix('blog')->group(function () {
     Route::resource('posts', 'PostsController');
-    // TODO: Add middleware for admin check
+
+    Route::prefix('posts')->group(function () {
+        Route::resource('tags', 'TagsController');
+    });
+
+    Route::get('posts/tags/{tag}', 'TagsController@index')->name('tags.filter');
 });
