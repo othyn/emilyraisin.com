@@ -1,0 +1,21 @@
+.blog-post-title a {
+    color: $black;
+}
+// Emphasise titles
+
+.blog-post,
+.editor-preview,
+.editor-preview-side {
+    blockquote {
+        margin: 2rem 3rem;
+        font-size: 1.125rem;
+        font-style: italic;
+        color: $grey;
+    }
+    // Default bootstrap styling isn't enough
+
+    img {
+        width: 100%;
+    }
+    // Restrict images
+}
