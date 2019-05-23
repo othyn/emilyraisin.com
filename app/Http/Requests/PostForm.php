@@ -25,9 +25,9 @@ class PostForm extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'subtitle' => 'required',
-            'body' => 'required',
+            'title' => 'required|max:255',
+            'subtitle' => 'required|max:500',
+            'body' => 'required|max:10000',
         ];
     }
 
