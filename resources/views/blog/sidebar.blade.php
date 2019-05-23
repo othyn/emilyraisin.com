@@ -23,6 +23,25 @@
 </div>
 
 <div class="p-4">
+    <h4 class="font-italic">Tags</h4>
+    <ol class="list-unstyled mb-0">
+        <li>
+            <a href="{{ route('posts.index') }}">
+                All posts ({{ $archives->sum('published') }})
+            </a>
+        </li>
+
+        @foreach ($tags as $tag)
+            <li>
+                <a href="{{ route('tags.filter', ['id' => $tag->name]) }}">
+                    {{ $tag->name }} ({{ $tag->posts->count() }})
+                </a>
+            </li>
+        @endforeach
+    </ol>
+</div>
+
+<div class="p-4">
     <h4 class="font-italic">Elsewhere</h4>
     <ol class="list-unstyled">
         <li>

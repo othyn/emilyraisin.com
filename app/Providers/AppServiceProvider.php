@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Tag;
 use App\Post;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('blog.sidebar', function ($view) {
             $view->with('archives', Post::archives());
+            $view->with('tags', Tag::with('posts')->get());
         });
     }
 
