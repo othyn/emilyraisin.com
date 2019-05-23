@@ -11,7 +11,10 @@
 |
 */
 
-Auth::routes();
+Auth::routes([
+    'reset' => false,
+    'register' => false
+]);
 
 Route::redirect('/home', '/');
 Route::redirect('/blog', '/blog/posts');
