@@ -24,15 +24,22 @@
 
     @endif
 
-    @foreach ($posts as $post)
+    @if (count($posts))
+        @foreach ($posts as $post)
 
-        @include ('blog.post')
+            @include ('blog.post')
 
-    @endforeach
+        @endforeach
 
-    <nav class="blog-pagination text-center">
-        <a class="d-inline-block mr-4" href="#">< Older</a>
-        <a class="d-inline-block" href="#">Newer ></a>
-    </nav>
+        <nav class="blog-pagination text-center">
+            <a class="d-inline-block mr-4" href="#">< Older</a>
+            <a class="d-inline-block" href="#">Newer ></a>
+        </nav>
+    @else
+        <div class="blog-post">
+            <h2 class="blog-post-title">Writers block</h2>
+            There doesn't appear to be anything here yet... please feel free to check back again later!
+        </div>
+    @endif
 
 @endsection
