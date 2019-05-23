@@ -10,3 +10,4 @@ import swal from 'sweetalert';
 require('./bootstrap');
 require('./typeit');
 require('./contact');
+require('./simplemde');
