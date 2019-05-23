@@ -31,10 +31,8 @@
 
         @endforeach
 
-        <nav class="blog-pagination text-center">
-            <a class="d-inline-block mr-4" href="#">< Older</a>
-            <a class="d-inline-block" href="#">Newer ></a>
-        </nav>
+        {{ $posts->links() }}
+
     @else
         <div class="blog-post">
             <h2 class="blog-post-title">Writers block</h2>
