@@ -63,6 +63,8 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
+        $post->body = (new \Parsedown())->text($post->body);
+
         return view('blog.show', compact('post'));
     }
 
