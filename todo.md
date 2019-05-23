@@ -1,5 +1,1 @@
-- Markdown editor and loading/rendering
 - Tagging
-- Login/out screen themeing
-- Social media links (if she wants it)
-- Short blurb for sidebar  (if she wants it)
