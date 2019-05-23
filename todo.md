@@ -1,5 +1,5 @@
-- Tagging
 - Markdown editor and loading/rendering
-- Social media links (if you want them)
-- Sbout blurb for sidebar
+- Tagging
 - Login/out screen themeing
+- Social media links (if she wants it)
+- Short blurb for sidebar  (if she wants it)
