@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Tag;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -41,5 +42,10 @@ class Post extends Model
         if ($year = $filters['year'] ?? false) {
             $query->whereYear('created_at', $year);
         }
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }
