@@ -29,7 +29,7 @@
 
                 <aside class="col-md-4 blog-sidebar">
 
-                    @include ('posts.sidebar')
+                    @include ('blog.sidebar')
 
                 </aside>
             </div>

@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        {!! nl2br(e($post->body)) !!}
+        {!! $post->body !!}
 
     </div>
 

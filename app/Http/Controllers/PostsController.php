@@ -29,7 +29,7 @@ class PostsController extends Controller
             ->filter(request(['year', 'month']))
             ->get();
 
-        return view('posts.index', compact('posts'));
+        return view('blog.index', compact('posts'));
     }
 
     /**
@@ -39,7 +39,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('blog.create');
     }
 
     /**
@@ -63,7 +63,7 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        return view('posts.show', compact('post'));
+        return view('blog.show', compact('post'));
     }
 
     /**
@@ -74,7 +74,7 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.edit', compact('post'));
+        return view('blog.edit', compact('post'));
     }
 
     /**
@@ -88,7 +88,7 @@ class PostsController extends Controller
     {
         $form->update($post);
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.show', ['id' => $post->id]);
     }
 
     /**

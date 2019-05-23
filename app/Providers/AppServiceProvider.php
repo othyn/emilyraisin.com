@@ -14,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('posts.sidebar', function ($view) {
+        view()->composer('blog.sidebar', function ($view) {
             $view->with('archives', Post::archives());
         });
     }
