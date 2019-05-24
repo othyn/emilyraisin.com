@@ -1,3 +1,2 @@
-- Post tag factory and seeder
 - CRUD on tags
-- Document!!
+- Document classes & methods!!
