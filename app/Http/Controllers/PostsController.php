@@ -87,7 +87,7 @@ class PostsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \App\Http\Requests\PostForm $form
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
