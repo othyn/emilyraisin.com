@@ -35,6 +35,12 @@ class User extends Authenticatable
 
     public function publish(Post $post)
     {
-        return $this->posts()->save($post);
+        $post = $this->posts()->save($post);
+
+        $post->tags()->sync(
+            request()->get('tags')
+        );
+
+        return $post;
     }
 }

@@ -48,6 +48,10 @@ class PostForm extends FormRequest
 
         $post->save();
 
+        $post->tags()->sync(
+            request()->get('tags')
+        );
+
         session()->flash('flash.success', 'Post updated successfully!');
     }
 }

@@ -33,6 +33,20 @@
         </div>
 
         <div class="form-group mb-4">
+            <label for="tags">Tags</label>
+            {!! Form::select('tags[]',
+                $tags->pluck('name', 'id'),
+                null,
+                [
+                    'id' => 'tags',
+                    'class' => 'custom-select',
+                    'multiple' => 'multiple',
+                    'size' => 7
+                ])
+            !!}
+        </div>
+
+        <div class="form-group mb-4">
             <label for="body">Body</label>
             <textarea class="form-control @error('body') is-invalid @enderror" id="body" name="body" rows="10">{{ old('body') }}</textarea>
             @error('body')

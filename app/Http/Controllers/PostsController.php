@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Tag;
 use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostForm;
@@ -39,7 +40,9 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('blog.create');
+        $tags = Tag::orderBy('name', 'asc')->get();
+
+        return view('blog.create', compact('tags'));
     }
 
     /**
@@ -76,7 +79,9 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('blog.edit', compact('post'));
+        $tags = Tag::orderBy('name', 'asc')->get();
+
+        return view('blog.edit', compact('post', 'tags'));
     }
 
     /**
