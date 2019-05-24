@@ -1,1 +1,2 @@
-- Tagging
+- Check validation for tags
+- Post tag factory and seeder
