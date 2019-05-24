@@ -1,0 +1,19 @@
+.pagination {
+    .page-link {
+        color: $theme-accent;
+        &:hover {
+            color: $white;
+            background-color: $theme-accent;
+            border-color: $theme-accent;
+        }
+    }
+    .page-item.active .page-link {
+        background-color: $theme-secondary;
+        border-color: $theme-secondary;
+        &:hover {
+            color: $white;
+            background-color: $theme-accent;
+            border-color: $theme-accent;
+        }
+    }
+}

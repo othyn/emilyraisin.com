@@ -1980,10 +1980,6 @@ pre code {
   color: #6c757d;
   opacity: 1;
 }
-.form-control::-moz-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
 .form-control:-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
@@ -4425,10 +4421,8 @@ input[type=button].btn-block {
 @media (min-width: 576px) {
   .card-columns {
     -webkit-column-count: 3;
-       -moz-column-count: 3;
             column-count: 3;
     -webkit-column-gap: 1.25rem;
-       -moz-column-gap: 1.25rem;
             column-gap: 1.25rem;
     orphans: 1;
     widows: 1;
@@ -9952,4 +9946,21 @@ a:hover,
 #nav-bar #brand:hover {
   color: #212529;
   text-decoration: none;
+}
+
+.pagination .page-link {
+  color: #7F7F7E;
+}
+.pagination .page-link:hover {
+  color: #212529;
+  background-color: #7F7F7E;
+  border-color: #7F7F7E;
+}
+.pagination .page-item.active .page-link {
+  background-color: #7F7F7E;
+}
+.pagination .page-item.active .page-link:hover {
+  color: #212529;
+  background-color: #7F7F7E;
+  border-color: #7F7F7E;
 }
