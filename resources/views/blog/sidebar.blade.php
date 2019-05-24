@@ -6,7 +6,7 @@
 <div class="p-4">
     <h4 class="font-italic">Archives</h4>
     <ol class="list-unstyled mb-0">
-        <li>
+        <li class="mb-1">
             <a href="{{ route('posts.index') }}">
                 All posts ({{ $archives->sum('published') }})
             </a>
@@ -23,9 +23,11 @@
 </div>
 
 <div class="p-4">
-    <h4 class="font-italic">Tags</h4>
+    <h4 class="font-italic">
+        Tags
+    </h4>
     <ol class="list-unstyled mb-0">
-        <li>
+        <li class="mb-1">
             <a href="{{ route('posts.index') }}">
                 All posts ({{ $archives->sum('published') }})
             </a>
@@ -33,11 +35,20 @@
 
         @foreach ($tags as $tag)
             <li>
+                @if (auth()->check() && auth()->user()->is_admin)
+                    <a class="btn btn-link text-left p-0 d-inline-block" href="{{ route('tags.edit', [$tag->id]) }}">Edit</a> -
+                @endif
                 <a href="{{ route('tags.filter', ['id' => $tag->name]) }}">
                     {{ $tag->name }} ({{ $tag->posts->count() }})
                 </a>
             </li>
         @endforeach
+
+        @if (auth()->check() && auth()->user()->is_admin)
+            <li>
+                <a class="btn btn-link text-left p-0 pt-1" href="{{ route('tags.create') }}">+ Create tag</a>
+            </li>
+        @endif
     </ol>
 </div>
 
