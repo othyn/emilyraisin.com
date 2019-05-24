@@ -17,7 +17,11 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('blog.sidebar', function ($view) {
             $archives = Post::archives();
-            $tags = Tag::has('posts')->with('posts')->get();
+
+            $tags = Tag::has('posts')
+                ->orderBy('name', 'asc')
+                ->with('posts')
+                ->get();
 
             $view->with(compact('archives', 'tags'));
         });
