@@ -9952,15 +9952,16 @@ a:hover,
   color: #7F7F7E;
 }
 .pagination .page-link:hover {
-  color: #212529;
+  color: #FFF;
   background-color: #7F7F7E;
   border-color: #7F7F7E;
 }
 .pagination .page-item.active .page-link {
-  background-color: #7F7F7E;
+  background-color: #212529;
+  border-color: #212529;
 }
 .pagination .page-item.active .page-link:hover {
-  color: #212529;
+  color: #FFF;
   background-color: #7F7F7E;
   border-color: #7F7F7E;
 }
