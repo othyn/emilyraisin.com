@@ -18,8 +18,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('blog.sidebar', function ($view) {
             $archives = Post::archives();
 
-            $tags = Tag::has('posts')
-                ->orderBy('name', 'asc')
+            $tags = Tag::orderBy('name', 'asc')
                 ->with('posts')
                 ->get();
 
