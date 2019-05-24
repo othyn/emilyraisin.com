@@ -13,7 +13,7 @@
 
 @section ('main-content')
 
-    <form method="POST" action="{{ route('tags.update', [$tag->id]) }}">
+    <form method="POST" action="{{ route('tags.update', [$tag->name]) }}">
         @csrf
         @method ('PATCH')
 
