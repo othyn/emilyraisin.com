@@ -11,10 +11,14 @@
 |
 */
 
-Auth::routes([
-    'reset' => false,
-    'register' => false,
-]);
+if (getenv('APP_ENV', 'production') == 'development') {
+    Auth::routes();
+} else {
+    Auth::routes([
+        'reset' => false,
+        'register' => false,
+    ]);
+}
 
 Route::redirect('/home', '/');
 Route::redirect('/blog', '/blog/posts');
