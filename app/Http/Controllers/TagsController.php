@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Tag;
 use Illuminate\Http\Request;
+use App\Http\Requests\TagForm;
 
 class TagsController extends Controller
 {
@@ -42,12 +43,14 @@ class TagsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \App\Http\Requests\TagForm $form
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TagForm $form)
     {
-        //
+        $form->persist();
+
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -69,19 +72,21 @@ class TagsController extends Controller
      */
     public function edit(Tag $tag)
     {
-        //
+        return view('tags.edit', compact('tag'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \App\Http\Requests\TagForm $form
      * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tag $tag)
+    public function update(TagForm $form, Tag $tag)
     {
-        //
+        $form->update($tag);
+
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -92,6 +97,10 @@ class TagsController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        $tag->delete();
+
+        session()->flash('flash.success', 'Tag deleted successfully!');
+
+        return redirect()->route('posts.index');
     }
 }

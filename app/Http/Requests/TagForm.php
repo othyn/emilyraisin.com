@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Tag;
 use Illuminate\Foundation\Http\FormRequest;
 
 class TagForm extends FormRequest
@@ -13,7 +14,7 @@ class TagForm extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->user()->is_admin;
     }
 
     /**
@@ -24,7 +25,23 @@ class TagForm extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|max:255',
         ];
+    }
+
+    public function persist()
+    {
+        Tag::create($this->only(['name']));
+
+        session()->flash('flash.success', 'Tag created successfully!');
+    }
+
+    public function update(Tag $tag)
+    {
+        $tag->name = $this->name;
+
+        $tag->save();
+
+        session()->flash('flash.success', 'Tag updated successfully!');
     }
 }
