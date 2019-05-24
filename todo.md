@@ -1,2 +1,1 @@
-- CRUD on tags
 - Document classes & methods!!
