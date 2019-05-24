@@ -9893,6 +9893,7 @@ a:hover,
   100% {
     opacity: 0;
     display: none;
+    z-index: 0;
   }
 }
 
@@ -9906,6 +9907,7 @@ a:hover,
   100% {
     opacity: 0;
     display: none;
+    z-index: 0;
   }
 }
 .blog-post-title a {
