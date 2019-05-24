@@ -31,7 +31,7 @@
 
         @endforeach
 
-        {{ $posts->links() }}
+        {{ $posts->appends(Request::except('page'))->links() }}
 
     @else
         <div class="blog-post">
