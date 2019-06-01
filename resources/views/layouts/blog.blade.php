@@ -28,9 +28,11 @@
                 </div>
 
                 <aside class="col-md-4 blog-sidebar">
+                    {{-- <div class="sticky-top"> --}}
 
-                    @include ('blog.sidebar')
+                        @include ('blog.sidebar')
 
+                    {{-- </div> --}}
                 </aside>
             </div>
         </main>
