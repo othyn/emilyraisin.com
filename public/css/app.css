@@ -9928,6 +9928,10 @@ a:hover,
   width: 100%;
 }
 
+.title-container {
+  min-height: 400px;
+}
+
 #nav-bar {
   position: fixed;
   top: 0;
