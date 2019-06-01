@@ -16,7 +16,7 @@ if (getenv('APP_ENV', 'production') == 'development') {
 } else {
     Auth::routes([
         'reset' => false,
-        'register' => false,
+        'register' => true,
     ]);
 }
 
