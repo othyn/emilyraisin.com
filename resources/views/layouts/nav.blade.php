@@ -1,28 +1,39 @@
-<div id="nav-bar">
-    <a id="brand" href="{{ route('home') }}">Emily Raisin, <small>Copywriter.</small></a>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="{{ route('home') }}">
+        Emily Raisin, <small>Copywriter.</small>
+    </a>
 
-    @if (auth()->check())
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#er-nav" aria-controls="er-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    @endif
-
-    <p class="d-inline-block float-right mt-1 mb-0">
-        @guest
-                <a href="{{ route('login') }}">{{ __('Login') }}</a>
+    <div class="collapse navbar-collapse" id="er-nav">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            @guest
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                </li>
 
                 @if (Route::has('register'))
-                    | <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
                 @endif
-        @else
-            <form method="POST" action="{{ route('logout') }}" class="d-inline-block float-right mt-1 mb-0">
-                {{ csrf_field() }}
+            @else
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">
+                        {{ auth()->user()->name }}
+                        (<span class="text-success">{{ auth()->user()->role }}</span>)
+                    </a>
+                </li>
 
-                <p class="mb-0">
-                    {{ auth()->user()->name }}
-                    @if (auth()->user()->is_admin) | <span class="text-success">Admin</span> @endif
-                    | <button type="submit" name="logout" class="btn btn-link btn-link-muted p-0 d-inline-block">Logout</button>
-                </p>
-            </form>
-        @endguest
-    </p>
-
-</div>
+                <form method="POST" action="{{ route('logout') }}" class="form-inline my-2 my-lg-0">
+                    {{ csrf_field() }}
+                    <li class="nav-item">
+                        <button type="submit" name="logout" class="nav-link">Logout</button>
+                    </li>
+                </form>
+            @endguest
+        </ul>
+    </div>
+</nav>
