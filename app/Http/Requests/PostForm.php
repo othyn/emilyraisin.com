@@ -36,7 +36,10 @@ class PostForm extends FormRequest
      */
     public function persist()
     {
-        $post = Post::create($this->only(['title', 'subtitle', 'body']));
+        $post = new Post($this->only(['title', 'subtitle', 'body']));
+
+        $post->user_id = auth()->user()->id;
+        $post->save();
 
         $post->tags()->sync(
             request()->get('tags')
