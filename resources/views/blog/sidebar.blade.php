@@ -1,6 +1,6 @@
 <div class="p-4 mb-3 bg-light rounded">
     <h4 class="font-italic">About</h4>
-    <p class="mb-0">I’m creative, but I also understand briefs and deadlines. If that sounds like the type of person you would like to work with, contact me.</p>
+    <p class="mb-0">Maintaining the word count, while making the words count. I’m creative, but I also understand briefs and deadlines. If that sounds like the type of person you would like to work with, contact me.</p>
 </div>
 
 <div class="p-4">
