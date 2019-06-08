@@ -5,6 +5,7 @@ namespace App;
 use App\Tag;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Cog\Laravel\Optimus\Facades\Optimus;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
@@ -24,8 +25,21 @@ class Post extends Model
     ];
 
     /**
+     * Retrieve the model for a bound value.
+     * https://laravel.com/docs/5.8/routing#explicit-binding > Customizing The Resolution Logic.
+     *
+     * @param mixed $value
+     *
+     * @return \Illuminate\Database\Eloquent\Model|null
+     */
+    public function resolveRouteBinding($value)
+    {
+        return $this->where('id', Optimus::decode($value))->firstOrFail();
+    }
+
+    /**
      * Accessor to pull a computed value for the post title to use as a url slug.
-     * https://laravel.com/docs/5.8/helpers#method-str-slug
+     * https://laravel.com/docs/5.8/helpers#method-str-slug.
      *
      * @return string The title of the post in a url slug safe format
      */
@@ -41,7 +55,7 @@ class Post extends Model
      */
     public function getUrlAttribute(): string
     {
-        return route('posts.show', [$this->id, $this->slug]);
+        return route('posts.show', [Optimus::encode($this->id), $this->slug]);
     }
 
     /**

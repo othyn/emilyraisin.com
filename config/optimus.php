@@ -12,7 +12,6 @@
 declare(strict_types=1);
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Default Connection Name
@@ -38,19 +37,10 @@ return [
     */
 
     'connections' => [
-
         'main' => [
-            'prime' => 'your-prime-integer',
-            'inverse' => 'your-inverse-integer',
-            'random' => 'your-random-integer',
+            'prime' => env('OPTIMUS_PRIME', ''),
+            'inverse' => env('OPTIMUS_INVERSE', ''),
+            'random' => env('OPTIMUS_RANDOM', ''),
         ],
-
-        'alternative' => [
-            'prime' => 'your-prime-integer',
-            'inverse' => 'your-inverse-integer',
-            'random' => 'your-random-integer',
-        ],
-
     ],
-
 ];
