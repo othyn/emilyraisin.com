@@ -35,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
                 'headerTitle' => ($segmentOne ? "{$author} - {$segmentOne}" : $author),
                 'headerSubtitle' => 'Freelance copywriter. I’m creative, but I also understand briefs and deadlines. If that sounds like the type of person you would like to work with, contact me.',
                 'headerTags' => $baseTags,
-                'headerImage' => url(auth()->user()->profile_image),
+                'headerImage' => auth()->user()->profile_image,
                 'headerUrl' => url()->current(),
                 'headerOgType' => 'website',
                 'headerOgTypeArticle' => false,
