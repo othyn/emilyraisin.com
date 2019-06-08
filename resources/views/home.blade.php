@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-12 mb-4">
-            <img src="{{ auth()->user()->profile_image }}" class="img-thumbnail rounded-circle img-fluid mx-auto d-block img-ruled" alt="Me!">
+            <img src="/img/me.jpeg" class="img-thumbnail rounded-circle img-fluid mx-auto d-block img-ruled" alt="Me!">
         </div>
 
         <div class="col-12 mb-4">
