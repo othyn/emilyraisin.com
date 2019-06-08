@@ -6,6 +6,9 @@
 
     <title>Emily Raisin</title>
 
+    @if (isset($canonical))
+        <link rel="canonical" href="{{ $canonical }}" />
+    @endif
     <meta name="description" content="Freelance copywriter. I’m creative, but I also understand briefs and deadlines. If that sounds like the type of person you would like to work with, contact me.">
 
     <link rel="shortcut icon" href="/favicon.png">

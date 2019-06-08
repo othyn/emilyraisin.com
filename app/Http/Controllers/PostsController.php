@@ -11,8 +11,6 @@ class PostsController extends Controller
 {
     /**
      * Create a new controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -49,6 +47,7 @@ class PostsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \App\Http\Requests\PostForm $form
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(PostForm $form)
@@ -61,20 +60,28 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param \App\Post $post
+     * @param string    $slug
+     *
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Post $post, $slug = '')
     {
         $post->body = (new \Parsedown())->text($post->body);
 
-        return view('blog.show', compact('post'));
+        if ($slug !== $post->slug) {
+            return redirect()->to($post->url);
+        }
+
+        return view('blog.show', compact('post'))
+            ->withCanonical($post->url);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param \App\Post $post
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
@@ -88,7 +95,8 @@ class PostsController extends Controller
      * Update the specified resource in storage.
      *
      * @param \App\Http\Requests\PostForm $form
-     * @param  \App\Post  $post
+     * @param \App\Post                   $post
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(PostForm $form, Post $post)
@@ -101,7 +109,8 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Post  $post
+     * @param \App\Post $post
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)

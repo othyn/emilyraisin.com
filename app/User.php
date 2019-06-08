@@ -36,7 +36,7 @@ class User extends Authenticatable
      *
      * @return string The role of the user
      */
-    public function getRoleAttribute()
+    public function getRoleAttribute(): string
     {
         return $this->is_admin ? 'Admin' : 'User';
     }

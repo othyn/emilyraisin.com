@@ -1,6 +1,6 @@
 <div class="blog-post pb-5 mb-5 border-bottom">
     <h2 class="blog-post-title">
-        <a href="{{ route('posts.show', [$post->id]) }}">
+        <a href="{{ $post->url }}">
             {{ $post->title }}
         </a>
     </h2>
@@ -9,7 +9,7 @@
     {{ $post->subtitle }}
 
     <div class="clearfix">
-        <a class="d-inline-block mt-3" href="{{ route('posts.show', [$post->id]) }}">Continue reading ></a>
+        <a class="d-inline-block mt-3" href="{{ $post->url }}">Continue reading ></a>
 
         @if (auth()->check() && auth()->user()->is_admin)
 

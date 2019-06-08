@@ -34,5 +34,6 @@ Route::prefix('blog')->group(function () {
         Route::resource('tags', 'TagsController');
     });
 
+    Route::get('posts/{post}/{slug?}', 'PostsController@show')->name('posts.show');
     Route::get('posts/tags/{tag}', 'TagsController@index')->name('tags.filter');
 });

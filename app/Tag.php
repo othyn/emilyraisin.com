@@ -27,7 +27,7 @@ class Tag extends Model
      *
      * @return string The db field to bind
      */
-    public function getRouteKeyName()
+    public function getRouteKeyName(): string
     {
         return 'name';
     }

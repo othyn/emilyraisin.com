@@ -24,6 +24,27 @@ class Post extends Model
     ];
 
     /**
+     * Accessor to pull a computed value for the post title to use as a url slug.
+     * https://laravel.com/docs/5.8/helpers#method-str-slug
+     *
+     * @return string The title of the post in a url slug safe format
+     */
+    public function getSlugAttribute(): string
+    {
+        return str_slug($this->title);
+    }
+
+    /**
+     * Accessor to pull a computed value for the post url.
+     *
+     * @return string The url of the post
+     */
+    public function getUrlAttribute(): string
+    {
+        return route('posts.show', [$this->id, $this->slug]);
+    }
+
+    /**
      * Pulls all months a post was posted with the count of posts for said month
      * to drive the archive sidebar.
      *
