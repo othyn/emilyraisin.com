@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-light">
+<nav class="navbar fixed-top navbar-light">
     <a class="navbar-brand" href="{{ route('home') }}">
         Emily Raisin, <small>Copywriter.</small>
     </a>
