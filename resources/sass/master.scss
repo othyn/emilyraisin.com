@@ -1,3 +1,18 @@
+@include media-breakpoint-up(sm) {
+    .h-50-d {
+        height: 50% !important;
+    }
+    .h-100-d {
+        height: 100% !important;
+    }
+}
+// Only set container to fill parent on desktop
+
+.mt-125 {
+    margin-top: 125px;
+}
+// Helper class for margin top
+
 a,
 .btn-link-muted {
     color: $theme-accent;

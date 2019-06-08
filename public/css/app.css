@@ -9861,6 +9861,19 @@ h3 {
     border-color: #dee2e6;
   }
 }
+@media (min-width: 576px) {
+  .h-50-d {
+    height: 50% !important;
+  }
+
+  .h-100-d {
+    height: 100% !important;
+  }
+}
+.mt-125 {
+  margin-top: 125px;
+}
+
 a,
 .btn-link-muted {
   color: #7F7F7E;
@@ -9928,10 +9941,11 @@ a:hover,
   width: 100%;
 }
 
-.title-container {
-  min-height: 400px;
+@media (min-width: 576px) {
+  .title-container {
+    min-height: 400px;
+  }
 }
-
 .navbar {
   padding: 1.5rem;
   background-color: #FFF;

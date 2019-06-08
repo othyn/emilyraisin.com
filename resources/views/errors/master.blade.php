@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}" class="h-100">
+<html lang="{{ app()->getLocale() }}" class="h-100-d">
 
     @include ('layouts.header')
     {{-- @yield('title') --}}
 
-    <body class="h-100">
+    <body class="h-100-d">
 
         @include ('layouts.nav')
 
-        <div class="container h-100">
-            <div class="row h-100">
-                <div class="col-12 h-100 d-flex flex-column justify-content-center text-center">
+        <div class="container h-100-d">
+            <div class="row h-100-d">
+                <div class="col-12 h-100-d d-flex flex-column justify-content-center text-center">
 
                     <div class="row">
                         <div class="col-12">
