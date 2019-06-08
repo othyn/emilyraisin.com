@@ -103,7 +103,7 @@ class PostsController extends Controller
     {
         $form->update($post);
 
-        return redirect()->route('posts.show', ['id' => $post->id]);
+        return redirect()->route('posts.show', ['id' => $post->encoded_id]);
     }
 
     /**

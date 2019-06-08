@@ -13,7 +13,7 @@
 
 @section ('main-content')
 
-    <form method="POST" action="{{ route('posts.update', [$post->id]) }}">
+    <form method="POST" action="{{ route('posts.update', [$post->encoded_id]) }}">
         @csrf
         @method ('PATCH')
 

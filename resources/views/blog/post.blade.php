@@ -14,9 +14,9 @@
         @if (auth()->check() && auth()->user()->is_admin)
 
             <span class="float-right mt-3">
-                <a class="btn btn-link d-inline-block p-0" href="{{ route('posts.edit', [$post->id]) }}">Edit</a>
+                <a class="btn btn-link d-inline-block p-0" href="{{ route('posts.edit', [$post->encoded_id]) }}">Edit</a>
                 <span class="text-muted pl-2 pr-2">|</span>
-                <form method="POST" action="{{ route('posts.destroy', [$post->id]) }}" class="d-inline-block">
+                <form method="POST" action="{{ route('posts.destroy', [$post->encoded_id]) }}" class="d-inline-block">
                     @csrf
                     @method ('DELETE')
 

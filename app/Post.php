@@ -3,10 +3,12 @@
 namespace App;
 
 use App\Tag;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Cog\Laravel\Optimus\Facades\Optimus;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Cog\Laravel\Optimus\Traits\OptimusEncodedRouteKey;
 
 class Post extends Model
 {
@@ -14,6 +16,11 @@ class Post extends Model
      * Enable soft deleting
      */
     use SoftDeletes;
+
+    /*
+     * Implement route model binding through Optimus
+     */
+    use OptimusEncodedRouteKey;
 
     /**
      * The attributes that are mass assignable.
@@ -25,16 +32,13 @@ class Post extends Model
     ];
 
     /**
-     * Retrieve the model for a bound value.
-     * https://laravel.com/docs/5.8/routing#explicit-binding > Customizing The Resolution Logic.
+     * Accessor to pull a computed value for the post encoded Optimus id.
      *
-     * @param mixed $value
-     *
-     * @return \Illuminate\Database\Eloquent\Model|null
+     * @return string The encoded Optimus id
      */
-    public function resolveRouteBinding($value)
+    public function getEncodedIdAttribute(): string
     {
-        return $this->where('id', Optimus::decode($value))->firstOrFail();
+        return Optimus::encode($this->id);
     }
 
     /**
@@ -55,7 +59,7 @@ class Post extends Model
      */
     public function getUrlAttribute(): string
     {
-        return route('posts.show', [Optimus::encode($this->id), $this->slug]);
+        return route('posts.show', [$this->encoded_id, $this->slug]);
     }
 
     /**
