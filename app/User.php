@@ -31,29 +31,23 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function posts()
     /**
      * Accessor to pull a computed value for the role.
      *
      * @return string The role of the user
      */
+    public function getRoleAttribute()
     {
-        return $this->hasMany(Post::class);
+        return $this->is_admin ? 'Admin' : 'User';
     }
 
-    public function publish(Post $post)
     /**
      * Return all the posts for a user.
      *
      * @return Illuminate\Database\Eloquent\Model
      */
+    public function posts()
     {
-        $post = $this->posts()->save($post);
-
-        $post->tags()->sync(
-            request()->get('tags')
-        );
-
-        return $post;
+        return $this->hasMany(Post::class);
     }
 }
