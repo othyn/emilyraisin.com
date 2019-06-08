@@ -31,6 +31,9 @@ class PostForm extends FormRequest
         ];
     }
 
+    /**
+     * Save the posted form as a post.
+     */
     public function persist()
     {
         auth()->user()->publish(
@@ -40,6 +43,11 @@ class PostForm extends FormRequest
         session()->flash('flash.success', 'Post created successfully!');
     }
 
+    /**
+     * Updates a post with the posted form data.
+     *
+     * @param App\Post $post Post to update
+     */
     public function update(Post $post)
     {
         $post->title = $this->title;

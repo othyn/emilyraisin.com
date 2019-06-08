@@ -29,6 +29,9 @@ class TagForm extends FormRequest
         ];
     }
 
+    /**
+     * Save the posted form as a tag.
+     */
     public function persist()
     {
         Tag::create($this->only(['name']));
@@ -36,6 +39,11 @@ class TagForm extends FormRequest
         session()->flash('flash.success', 'Tag created successfully!');
     }
 
+    /**
+     * Updates a tag with the posted form data.
+     *
+     * @param App\Tag $tag Tag to update
+     */
     public function update(Tag $tag)
     {
         $tag->name = $this->name;

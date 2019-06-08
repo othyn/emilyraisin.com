@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
+    /*
+     * Enable soft deleting
+     */
     use SoftDeletes;
 
     /**
@@ -17,9 +20,15 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'subtitle', 'body'
+        'title', 'subtitle', 'body',
     ];
 
+    /**
+     * Pulls all months a post was posted with the count of posts for said month
+     * to drive the archive sidebar.
+     *
+     * @return Illuminate\Database\Eloquent\Model
+     */
     public static function archives()
     {
         return static::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
@@ -28,12 +37,35 @@ class Post extends Model
             ->get();
     }
 
+    /**
+     * Return the author for a post.
+     *
+     * @return Illuminate\Database\Eloquent\Model
+     */
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function scopeFilter($query, $filters)
+    /**
+     * Return all the tags for a post.
+     *
+     * @return Illuminate\Database\Eloquent\Model
+     */
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
+    /**
+     * Adds a query scope to posts to allow quick filtration by year and month
+     * used when loading out all posts to check if they are being filtered by
+     * a user clicking on the archive sidebar.
+     *
+     * @param \Illuminate\Database\Query\Builder $query   Query to extend
+     * @param array                              $filters Array of data to process
+     */
+    public function scopeFilter($query, array $filters)
     {
         if ($month = $filters['month'] ?? false) {
             $query->whereMonth('created_at', Carbon::parse($month)->month);
@@ -42,10 +74,5 @@ class Post extends Model
         if ($year = $filters['year'] ?? false) {
             $query->whereYear('created_at', $year);
         }
-    }
-
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class);
     }
 }
