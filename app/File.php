@@ -28,6 +28,25 @@ class File extends Model
     ];
 
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['url'];
+
+    /**
+     * Custom accessor to generate the path
+     * ...as a URL
+     * ...as a property
+     *
+     * @return string
+     */
+    public function getUrlAttribute()
+    {
+        return asset("storage/{$this->path}");
+    }
+
+    /**
      * Return the user for the file.
      *
      * @return Illuminate\Database\Eloquent\Model
