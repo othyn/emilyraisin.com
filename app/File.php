@@ -22,7 +22,6 @@ class File extends Model
         'name',
         'overview',
         'path',
-        'url',
         'size',
         'mime',
     ];
