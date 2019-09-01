@@ -39,6 +39,10 @@ after('deploy:failed', 'deploy:unlock');
 // Migrate database before symlink new release.
 before('deploy:symlink', 'artisan:migrate');
 
+// Configure the public upload directory
+// https://github.com/deployphp/deployer/blob/master/recipe/laravel.php#L193
+before('deploy:symlink', 'deploy:public_disk');
+
 // Run a Yarn install and then build client assets
 after('deploy:update_code', 'yarn:install');
 after('yarn:install', 'yarn:build');
