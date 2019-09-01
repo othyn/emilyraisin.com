@@ -1,10 +1,14 @@
 <?php
 
+/* @var $factory \Illuminate\Database\Eloquent\Factory */
+
+use App\Post;
+use App\User;
 use Faker\Generator as Faker;
 
-$factory->define(App\Post::class, function (Faker $faker) {
+$factory->define(Post::class, function (Faker $faker) {
     return [
-        'user_id' => App\User::all()->random()->id,
+        'user_id' => User::all()->random()->id,
         'title' => $faker->sentence,
         'subtitle' => $faker->sentences($items = 5, $asString = true),
         'body' => $faker->paragraphs($items = 15, $asString = true),
