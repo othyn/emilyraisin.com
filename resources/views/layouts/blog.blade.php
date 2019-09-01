@@ -21,19 +21,31 @@
 
         <main role="main" class="container">
             <div class="row">
-                <div class="col-md-8 blog-main">
+                @if ($sidebar)
 
-                    @yield ('main-content')
+                    <div class="col-md-8 blog-main">
 
-                </div>
+                        @yield ('main-content')
 
-                <aside class="col-md-4 blog-sidebar">
-                    {{-- <div class="sticky-top"> --}}
+                    </div>
 
-                        @include ('blog.sidebar')
+                    <aside class="col-md-4 blog-sidebar">
+                        {{-- <div class="sticky-top"> --}}
 
-                    {{-- </div> --}}
-                </aside>
+                            @include ('blog.sidebar')
+
+                        {{-- </div> --}}
+                    </aside>
+
+                @else
+
+                    <div class="col-md-12 blog-main">
+
+                        @yield ('main-content')
+
+                    </div>
+
+                @endif
             </div>
         </main>
 

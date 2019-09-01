@@ -1,4 +1,4 @@
-@extends ('layouts.blog')
+@extends ('layouts.blog', ['sidebar' => true])
 
 @section ('title-content')
 
