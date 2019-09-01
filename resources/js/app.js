@@ -8,6 +8,7 @@
 import swal from 'sweetalert';
 
 require('./bootstrap');
+require('./dropzone');
 require('./typeit');
 require('./contact');
 require('./simplemde');
