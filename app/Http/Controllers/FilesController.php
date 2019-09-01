@@ -6,6 +6,8 @@ use App\File;
 use Illuminate\Http\Request;
 use App\Http\Requests\FileRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File as FileSystem;
+use Illuminate\Support\Facades\Response;
 
 class FilesController extends Controller
 {
@@ -26,12 +28,19 @@ class FilesController extends Controller
      */
     public function index()
     {
-        $files = Auth::user()
-            ->files()
-            ->latest()
-            ->paginate(25);
+        return view('files.index');
+    }
 
-        return view('files.index', compact('files'));
+    /**
+     * Returns all the files for the user
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function files()
+    {
+        return Response::json(
+            Auth::user()->files()->list()->latest()->get()
+        );
     }
 
     /**
@@ -99,6 +108,12 @@ class FilesController extends Controller
      */
     public function destroy(File $file)
     {
-        //
+        if ($file->user_id != Auth::id()) {
+            return Response::json(['error' => 'You are not permitted to delete this file.'], 403);
+        }
+
+        FileSystem::exists($file->path) && FileSystem::delete($file->path);
+
+        $file->delete();
     }
 }

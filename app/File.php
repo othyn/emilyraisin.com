@@ -55,4 +55,14 @@ class File extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Adds a query scope to limit the items returned to the list endpoint.
+     *
+     * @param \Illuminate\Database\Query\Builder $query   Query to extend
+     */
+    public function scopeList($query)
+    {
+        $query->select('id', 'original_name', 'created_at', 'path');
+    }
 }
