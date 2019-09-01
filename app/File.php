@@ -22,7 +22,6 @@ class File extends Model
         'user_id',
         'original_name',
         'name',
-        'overview',
         'path',
         'size',
         'mime',
