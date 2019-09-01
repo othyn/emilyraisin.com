@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
             $segmentOne = ucfirst(request()->segment(1));
 
             $author = 'Emily Raisin';
-            $baseTags = 'Emily Raisin, copywriter, freelance, creative, blog';
+            $baseTags = 'Emily Raisin,copywriter,freelance,creative,blog';
 
             $viewData = [
                 'headerAuthor' => $author,
@@ -53,7 +53,7 @@ class AppServiceProvider extends ServiceProvider
                 }
 
                 if ($view->post->tags) {
-                    $viewData['headerTags'] = $baseTags . ', ' . $view->post->tags->pluck('name')->implode(', ');
+                    $viewData['headerTags'] = $baseTags . ',' . $view->post->tags->pluck('name')->implode(',');
                 }
 
                 $viewData['headerOgType'] = 'article';

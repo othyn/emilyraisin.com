@@ -35,11 +35,11 @@
     @endif
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="{{ $headerImage }}">
-    <meta property="twitter:url" content="{{ $headerUrl }}">
-    <meta property="twitter:title" content="{{ $headerTitle }}">
-    <meta property="twitter:description" content="{{ $headerSubtitle }}">
-    <meta property="twitter:image" content="{{ $headerImage }}">
+    <meta name="twitter:card" content="{{ $headerImage }}">
+    <meta name="twitter:url" content="{{ $headerUrl }}">
+    <meta name="twitter:title" content="{{ $headerTitle }}">
+    <meta name="twitter:description" content="{{ $headerSubtitle }}">
+    <meta name="twitter:image" content="{{ $headerImage }}">
 
     @if (isset($canonical))
         <link rel="canonical" href="{{ $canonical }}" />
