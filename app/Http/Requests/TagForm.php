@@ -25,7 +25,7 @@ class TagForm extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|max:255',
+            'name' => 'required|unique:tags|max:255',
         ];
     }
 
