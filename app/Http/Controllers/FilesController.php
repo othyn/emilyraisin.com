@@ -14,7 +14,10 @@ class FilesController extends Controller
      */
     public function index()
     {
-        //
+        $files = File::latest()
+            ->paginate(25);
+
+        return view('files.index', compact('files'));
     }
 
     /**

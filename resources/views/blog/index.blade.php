@@ -20,7 +20,10 @@
 
     @if (auth()->check() && auth()->user()->is_admin)
 
-        <a class="btn btn-link text-left d-block pb-4 mb-5 border-bottom" href="{{ route('posts.create') }}">+ Create post</a>
+        <div class="d-block border-bottom pb-4 mb-5">
+            <a class="btn btn-link" href="{{ route('posts.create') }}">+ Create post</a>
+            <a class="btn btn-link pull-right" href="{{ route('files.index') }}">[=] Manage files</a>
+        </div>
 
     @endif
 
