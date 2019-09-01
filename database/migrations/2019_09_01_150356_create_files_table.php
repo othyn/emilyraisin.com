@@ -14,7 +14,7 @@ class CreateFilesTable extends Migration
     public function up()
     {
         Schema::create('files', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('user_id')
                   ->unsigned()
                   ->index();
@@ -28,8 +28,7 @@ class CreateFilesTable extends Migration
 
             $table->foreign('user_id')
                   ->references('id')
-                  ->on('users')
-                  ->onDelete('cascade');
+                  ->on('users');
         });
     }
 
