@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <main role="main" class="container">
+        <main id="app" role="main" class="container">
             <div class="row">
                 @if ($sidebar)
 
