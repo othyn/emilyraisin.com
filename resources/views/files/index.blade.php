@@ -13,21 +13,19 @@
 
 @section ('main-content')
 
-    <form method="POST" action="{{ route('files.store') }}">
-        @csrf
+    <a class="btn btn-link text-left d-block border-bottom pb-4 mb-5" href="{{ route('posts.index') }}">< Back to list</a>
 
-        <div class="form-group mb-4">
-            <label for="name">Name</label>
-            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required>
-            @error('name')
-                <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-        </div>
+    <div id="file" class="dropzone"></div>
 
-        <div class="clearfix mb-5">
-            <a class="d-inline-block" href="{{ route('posts.index') }}">< Back to list</a>
-            <button type="submit" class="btn btn-link p-0 d-inline-block float-right">Publish ></button>
-        </div>
-    </form>
+@endsection
 
+@section ('scripts')
+    <script>
+        var dropzone = new Dropzone('#file', {
+            url: "{{ route('files.store') }}",
+            headers: {
+                'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+            }
+        });
+    </script>
 @endsection

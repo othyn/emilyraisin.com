@@ -3,3 +3,7 @@
 <script src="{{ mix('/js/app.js') }}"></script>
 
 {!! NoCaptcha::renderJs() !!}
+
+@if (View::hasSection('scripts'))
+    @yield ('scripts')
+@endif
