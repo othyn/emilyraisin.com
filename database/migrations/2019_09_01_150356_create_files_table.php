@@ -21,7 +21,6 @@ class CreateFilesTable extends Migration
             $table->text('original_name');
             $table->text('name');
             $table->text('path');
-            $table->text('url');
             $table->float('size', 10, 2);
             $table->text('mime');
             $table->timestamps();
