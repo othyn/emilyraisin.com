@@ -41,7 +41,7 @@ before('deploy:symlink', 'artisan:migrate');
 
 // Configure the public upload directory
 // https://github.com/deployphp/deployer/blob/master/recipe/laravel.php#L193
-// artisan:storage:link is run by the Laravel recipie automatically
+// artisan:storage:link is run by the Laravel recipe automatically
 before('deploy:symlink', 'deploy:public_disk');
 
 // Run a Yarn install and then build client assets
