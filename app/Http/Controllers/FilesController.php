@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FilesController extends Controller
 {
@@ -24,7 +25,9 @@ class FilesController extends Controller
      */
     public function index()
     {
-        $files = File::latest()
+        $files = Auth::user()
+            ->files()
+            ->latest()
             ->paginate(25);
 
         return view('files.index', compact('files'));
