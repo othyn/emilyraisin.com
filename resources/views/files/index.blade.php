@@ -19,40 +19,7 @@
 
     <h4 class="pb-2">Uploaded files</h4>
 
-    @if (count($files))
-
-        <div class="table-responsive">
-            <table class="table">
-                <thead class="thead-dark">
-                    <th>Name</th>
-                    <th>URL</th>
-                    <th>Uploaded</th>
-                    <th>Options</th>
-                </thead>
-                <tbody>
-                    @foreach ($files as $file)
-                        <tr>
-                            <td>{{ $file->original_name }}</td>
-                            <td>
-                                <a href="{{ $file->url }}" target="_blank" rel="noopener noreferrer">{{ $file->url }}</a>
-                            </td>
-                            <td>{{ $file->created_at }}</td>
-                            <td>
-                                <a href="{{ route('files.destroy', ['id' => $file->id]) }}">Delete</a>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-
-        {{ $files->appends(Request::except('page'))->links() }}
-
-    @else
-
-        <p>There doesn't appear to be anything here yet... please feel free upload some files!</p>
-
-    @endif
+    <file-table></file-table>
 
     <a class="btn btn-link text-left d-block mb-5" href="{{ route('posts.index') }}">< Back to list</a>
 
@@ -65,37 +32,9 @@
             headers: {
                 'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
             }
-        });
-
-        $('#hole-tbody').on('click', '.delete-hole-btn', function() {
-            let $swalContent = $('#swal-hole-content-template').clone().css({'display': 'block'})
-              , location     = $(this).data('location');
-
-            swal({
-                title: `Delete ${location}?`,
-                text: 'This will permanently delete the hole, with all associated scores and data. This is action not recoverable. Continue?',
-                icon: 'warning',
-                buttons: ['Hell no!', 'Yes, delete the hole'],
-                dangerMode: true,
-            })
-            .then((value) => {
-                if (value) {
-                    let game = $(this).data('game')
-                      , hole = $(this).data('hole');
-                    axios({
-                        method: 'DELETE',
-                        url: '/games/' + game + '/hole/' + hole
-                    })
-                    .then((response) => {
-                        swal('Hole deleted 💔', 'We\'ll miss you, hole.', 'success');
-                        $('#hole-tbody').html(response.data);
-                    })
-                    .catch((error) => {
-                        swal('Uh-oh 😨', 'There was a problem deleting the hole, try again in a minute.', 'error');
-                        // TODO: Could do with displaying validation errors
-                    });
-                }
-            });
+        })
+        .on('complete', function(file) {
+            window.app.$root.$emit('bv::refresh::table', 'file-table');
         });
     </script>
 @endsection
