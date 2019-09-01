@@ -26,4 +26,14 @@ class File extends Model
         'size',
         'mime',
     ];
+
+    /**
+     * Return the user for the file.
+     *
+     * @return Illuminate\Database\Eloquent\Model
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

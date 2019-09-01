@@ -50,4 +50,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    /**
+     * Return all the files for a user.
+     *
+     * @return Illuminate\Database\Eloquent\Model
+     */
+    public function files()
+    {
+        return $this->hasMany(File::class);
+    }
 }
