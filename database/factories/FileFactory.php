@@ -17,7 +17,7 @@ $factory->define(File::class, function (Faker $faker) {
         'original_name' => $fileName,
         'name' => $fileName,
         'path' => "/public/storage/{$fileName}",
-        'size' => round(1 + mt_rand() / mt_getrandmax() * (9999999999 - 1), 2),
+        'size' => round(1 + mt_rand() / mt_getrandmax() * (99999999 - 1), 2),
         'mime' => 'image/png',
         'created_at' => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),
     ];
