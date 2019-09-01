@@ -16,3 +16,6 @@ php artisan migrate:refresh
 echo 'Seeding DB...'
 php artisan db:seed
 # Migrate the databases - deleting all content and mapping the migrations a new
+
+echo 'Link public directory for file uploads...'
+php artisan storage:link
