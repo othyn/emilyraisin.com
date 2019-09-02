@@ -23,6 +23,10 @@
             <p class="text-center my-2">There doesn't appear to be anything here yet... please feel free upload some files!</p>
         </template>
 
+        <template slot="[url]" slot-scope="data">
+            <a :href="data.item.url" target="_blank" rel="noopener noreferrer">{{ data.item.url }}</a>
+        </template>
+
         <template slot="[options]" slot-scope="data">
             <file-table-delete-button :file-id="data.item.id" :file-name="data.item.original_name"></file-table-delete-button>
         </template>
