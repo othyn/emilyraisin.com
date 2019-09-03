@@ -8,15 +8,15 @@
     </button>
 
     <div class="collapse navbar-collapse" id="er-nav">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <ul class="navbar-nav mt-2 mt-lg-0 text-right">
             @guest
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }} <i class="fa fa-angle-left"></i></a>
                 </li>
 
                 @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }} <i class="fa fa-angle-left"></i></a>
                     </li>
                 @endif
             @else
@@ -29,8 +29,8 @@
 
                 <form method="POST" action="{{ route('logout') }}" class="form-inline my-2 my-lg-0">
                     {{ csrf_field() }}
-                    <li class="nav-item">
-                        <button type="submit" name="logout" class="nav-link">Logout</button>
+                    <li class="nav-item w-100">
+                        <button type="submit" name="logout" class="nav-link w-100 text-right">Logout  <i class="fa fa-angle-left"></i></button>
                     </li>
                 </form>
             @endguest
