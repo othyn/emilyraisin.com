@@ -2,9 +2,9 @@
 
 namespace App;
 
-use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class File extends Model
 {
@@ -19,12 +19,7 @@ class File extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id',
-        'original_name',
-        'name',
-        'path',
-        'size',
-        'mime',
+        'user_id', 'original_name', 'name', 'path', 'size', 'mime',
     ];
 
     /**
@@ -32,16 +27,18 @@ class File extends Model
      *
      * @var array
      */
-    protected $appends = ['url'];
+    protected $appends = [
+        'url',
+    ];
 
     /**
      * Custom accessor to generate the path
      * ...as a URL
-     * ...as a property
+     * ...as a property.
      *
      * @return string
      */
-    public function getUrlAttribute()
+    public function getUrlAttribute(): string
     {
         return asset("storage/{$this->path}");
     }
@@ -49,9 +46,9 @@ class File extends Model
     /**
      * Return the user for the file.
      *
-     * @return Illuminate\Database\Eloquent\Model
+     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
@@ -59,9 +56,9 @@ class File extends Model
     /**
      * Adds a query scope to limit the items returned to the list endpoint.
      *
-     * @param \Illuminate\Database\Query\Builder $query   Query to extend
+     * @param \Illuminate\Database\Query\Builder $query Query to extend
      */
-    public function scopeList($query)
+    public function scopeList($query): void
     {
         $query->select('id', 'original_name', 'created_at', 'path');
     }

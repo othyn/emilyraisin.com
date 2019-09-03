@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -44,9 +44,9 @@ class User extends Authenticatable
     /**
      * Return all the posts for a user.
      *
-     * @return Illuminate\Database\Eloquent\Model
+     * @return Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function posts()
+    public function posts(): HasMany
     {
         return $this->hasMany(Post::class);
     }
@@ -54,9 +54,9 @@ class User extends Authenticatable
     /**
      * Return all the files for a user.
      *
-     * @return Illuminate\Database\Eloquent\Model
+     * @return Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function files()
+    public function files(): HasMany
     {
         return $this->hasMany(File::class);
     }

@@ -2,9 +2,9 @@
 
 namespace App;
 
-use App\Post;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Tag extends Model
 {
@@ -54,9 +54,9 @@ class Tag extends Model
     /**
      * Return all the posts for a tag.
      *
-     * @return Illuminate\Database\Eloquent\Model
+     * @return Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function posts()
+    public function posts(): BelongsToMany
     {
         return $this->belongsToMany(Post::class);
     }

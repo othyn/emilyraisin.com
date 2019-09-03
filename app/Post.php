@@ -2,13 +2,14 @@
 
 namespace App;
 
-use App\Tag;
-use App\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Cog\Laravel\Optimus\Facades\Optimus;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Cog\Laravel\Optimus\Traits\OptimusEncodedRouteKey;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Post extends Model
 {
@@ -66,9 +67,9 @@ class Post extends Model
      * Pulls all months a post was posted with the count of posts for said month
      * to drive the archive sidebar.
      *
-     * @return Illuminate\Database\Eloquent\Model
+     * @return Illuminate\Database\Eloquent\Collection
      */
-    public static function archives()
+    public static function archives(): Collection
     {
         return static::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
             ->groupBy('year', 'month')
@@ -79,9 +80,9 @@ class Post extends Model
     /**
      * Return the author for a post.
      *
-     * @return Illuminate\Database\Eloquent\Model
+     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
@@ -89,9 +90,9 @@ class Post extends Model
     /**
      * Return all the tags for a post.
      *
-     * @return Illuminate\Database\Eloquent\Model
+     * @return Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function tags()
+    public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class);
     }
@@ -104,7 +105,7 @@ class Post extends Model
      * @param \Illuminate\Database\Query\Builder $query   Query to extend
      * @param array                              $filters Array of data to process
      */
-    public function scopeFilter($query, array $filters)
+    public function scopeFilter($query, array $filters): void
     {
         if ($month = $filters['month'] ?? false) {
             $query->whereMonth('created_at', Carbon::parse($month)->month);
