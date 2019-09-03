@@ -49,6 +49,7 @@
 
         <div class="form-group mb-4">
             <label for="body">Body</label>
+            <file-select insert-into-id="body"></file-select>
             <textarea class="form-control @error('body') is-invalid @enderror" id="body" name="body" rows="10">{{ old('body') ?? $post->body }}</textarea>
             @error('body')
                 <div class="invalid-feedback">{{ $message }}</div>
