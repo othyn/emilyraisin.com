@@ -6,7 +6,7 @@
             </template>
         </b-form-select>
         <b-input-group-append>
-            <b-button variant="outline-success" @click="clicked">Insert</b-button>
+            <b-button variant="outline-info" @click="clicked">Insert</b-button>
         </b-input-group-append>
     </b-input-group>
 </template>
