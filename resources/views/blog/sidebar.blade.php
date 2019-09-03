@@ -36,9 +36,9 @@
         @foreach ($tags as $tag)
             <li>
                 @if (auth()->check() && auth()->user()->is_admin)
-                    <a class="btn btn-link text-left d-inline-block p-0" href="{{ route('tags.edit', [$tag->name]) }}">Edit</a>
+                    <a class="btn btn-link text-left d-inline-block p-0" href="{{ route('tags.edit', [$tag->url_name]) }}">Edit</a>
                     <span class="text-muted pl-1 pr-1">|</span>
-                    <form method="POST" action="{{ route('tags.destroy', [$tag->name]) }}" class="d-inline-block">
+                    <form method="POST" action="{{ route('tags.destroy', [$tag->url_name]) }}" class="d-inline-block">
                         @csrf
                         @method ('DELETE')
                         <button type="submit" class="btn btn-link d-inline-block p-0">Delete</button>
@@ -46,7 +46,7 @@
                     -
                 @endif
 
-                <a href="{{ route('tags.filter', ['id' => $tag->name]) }}">
+                <a href="{{ route('tags.filter', ['id' => $tag->url_name]) }}">
                     {{ $tag->name }} ({{ $tag->posts->count() }})
                 </a>
             </li>
