@@ -26,3 +26,12 @@
     }
 }
 // Fix for title being clipped into nav fade
+
+.btn-outline-info {
+    &:hover,
+    &:focus,
+    &:active {
+        color: #FFF;
+    }
+}
+// Fix button hover for info outline being black
