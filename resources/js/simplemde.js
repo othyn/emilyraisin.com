@@ -1,6 +1,11 @@
 import SimpleMDE from 'simplemde';
 import 'simplemde/dist/simplemde.min.css';
 
-var simplemde = new SimpleMDE({
-    element: document.getElementById("body")
+let blogBody = document.getElementById("body")
+
+let simpleMDEBlogBody = new SimpleMDE({
+    element: blogBody
 });
+
+blogBody.simpleMde = simpleMDEBlogBody
+// Store the instance against the element to stop scope creep
