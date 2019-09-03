@@ -37,6 +37,7 @@ Route::prefix('blog')->group(function () {
     Route::get('posts/{post}/{slug?}', 'PostsController@show')->name('posts.show');
     Route::get('posts/tags/{tag}', 'TagsController@index')->name('tags.filter');
 
+    Route::get('files/list/select', 'FilesController@filesSelect')->name('files.list.select');
     Route::get('files/list', 'FilesController@files')->name('files.list');
     // This is here as it needs to be stateful
     // List seems to not agree with resource! So has to be above
