@@ -11,12 +11,12 @@
 |
 */
 
-if (getenv('APP_ENV', 'production') == 'development') {
+if (getenv('APP_ENV', '') == 'development') {
     Auth::routes();
 } else {
     Auth::routes([
         'reset' => false,
-        'register' => true,
+        'register' => false,
     ]);
 }
 
