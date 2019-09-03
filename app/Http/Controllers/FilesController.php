@@ -63,6 +63,8 @@ class FilesController extends Controller
      */
     public function filesSelect()
     {
+        $response = [];
+
         $files = Auth::user()->files()->list()->orderBy('original_name', 'asc')->get();
         // Order by here intends to get it so far, but filenames with numbers won't
         // sort into a natural order, eg. whole numbers in strings
