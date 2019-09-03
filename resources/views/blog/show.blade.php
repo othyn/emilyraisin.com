@@ -9,7 +9,7 @@
 
             @if (count($post->tags))
                 @foreach ($post->tags as $tag)
-                    <a class="pr-3" href="{{ route('tags.filter', [$tag->name]) }}">{{ $tag->name }}</a>
+                    <a class="pr-3" href="{{ route('tags.filter', [$tag->url_name]) }}">{{ $tag->name }}</a>
                 @endforeach
             @endif
         </div>
